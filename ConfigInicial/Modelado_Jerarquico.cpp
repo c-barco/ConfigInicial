@@ -337,7 +337,7 @@ int main() {
 
 		//Model Dedos4 a
 		model = glm::translate(modelTemp2, glm::vec3(0.2f, -0.5f, 0.25f));
-		model = glm::rotate(model, glm::radians(dedo1), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(-dedo1), glm::vec3(0.0f, 0.0f, 1.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f, 0.2f, 0.15f));
 		color = glm::vec3(0.933f, 0.361f, 0.722f);
@@ -347,7 +347,7 @@ int main() {
 
 		//Model Dedos4 b
 		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0, 0.0f));
-		model = glm::rotate(model, glm::radians(dedo2), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(-dedo2), glm::vec3(0.0f, 0.0f, 1.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.375f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.75f, 0.2f, 0.15f));
 		color = glm::vec3(0.984f, 0.616f, 0.847f);
@@ -357,7 +357,7 @@ int main() {
 
 		//Model Dedos4 c
 		model = glm::translate(modelTemp, glm::vec3(0.375f, 0.0, 0.0f));
-		model = glm::rotate(model, glm::radians(dedo3), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(-dedo3), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.25f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f, 0.2f, 0.15f));
 		color = glm::vec3(1.0f, 0.106f, 0.667f);
@@ -368,7 +368,7 @@ int main() {
 
 		//Model Dedos5 a
 		model = glm::translate(modelTemp2, glm::vec3(0.2f, -0.5f, -0.25f));
-		model = glm::rotate(model, glm::radians(dedo1), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(-dedo1), glm::vec3(0.0f, 0.0f, 1.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.5f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(1.0f, 0.2f, 0.15f));
 		color = glm::vec3(0.933f, 0.361f, 0.722f);
@@ -378,7 +378,7 @@ int main() {
 
 		//Model Dedos5 b
 		model = glm::translate(modelTemp, glm::vec3(0.5f, 0.0, 0.0f));
-		model = glm::rotate(model, glm::radians(dedo2), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(-dedo2), glm::vec3(0.0f, 0.0f, 1.0f));
 		modelTemp = model = glm::translate(model, glm::vec3(0.375f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.75f, 0.2f, 0.15f));
 		color = glm::vec3(0.984f, 0.616f, 0.847f);
@@ -388,7 +388,7 @@ int main() {
 
 		//Model Dedos5 c
 		model = glm::translate(modelTemp, glm::vec3(0.375f, 0.0, 0.0f));
-		model = glm::rotate(model, glm::radians(dedo3), glm::vec3(0.0f, 0.0f, 1.0f));
+		model = glm::rotate(model, glm::radians(-dedo3), glm::vec3(0.0f, 0.0f, 1.0f));
 		model = glm::translate(model, glm::vec3(0.25f, 0.0f, 0.0f));
 		model = glm::scale(model, glm::vec3(0.5f, 0.2f, 0.15f));
 		color = glm::vec3(1.0f, 0.106f, 0.667f);
@@ -410,49 +410,113 @@ int main() {
 	return EXIT_SUCCESS;
  }
 
- void Inputs(GLFWwindow *window) {
-	 if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)  //GLFW_RELEASE
-		 glfwSetWindowShouldClose(window, true);
-	 if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
-		 movX += 0.008f;
-	 if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
-		 movX -= 0.008f;
-	 if (glfwGetKey(window,GLFW_KEY_UP) == GLFW_PRESS)
-		 movY += 0.008f;
-	 if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
-		 movY -= 0.008f;
-	 if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
-		 movZ -= 0.008f;
-	 if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
-		 movZ += 0.008f;
-	 if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
-		 rot += 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
-		 rot -= 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
-		 hombro += 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
-		 hombro -= 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
-		 codo -= 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
-		 codo += 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
-		 muneca -= 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
-		 muneca += 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS)
-		 dedo1 -= 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS)
-		 dedo1 += 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS)
-		 dedo2 -= 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS)
-		 dedo2 += 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS)
-		 dedo3 -= 0.018f;
-	 if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS)
-		 dedo3 += 0.018f;
- }
+void Inputs(GLFWwindow* window) {
+	if (glfwGetKey(window, GLFW_KEY_ESCAPE) == GLFW_PRESS)  //GLFW_RELEASE
+		glfwSetWindowShouldClose(window, true);
+	if (glfwGetKey(window, GLFW_KEY_D) == GLFW_PRESS)
+		movX += 0.008f;
+	if (glfwGetKey(window, GLFW_KEY_A) == GLFW_PRESS)
+		movX -= 0.008f;
+	if (glfwGetKey(window, GLFW_KEY_UP) == GLFW_PRESS)
+		movY += 0.008f;
+	if (glfwGetKey(window, GLFW_KEY_DOWN) == GLFW_PRESS)
+		movY -= 0.008f;
+	if (glfwGetKey(window, GLFW_KEY_W) == GLFW_PRESS)
+		movZ -= 0.008f;
+	if (glfwGetKey(window, GLFW_KEY_S) == GLFW_PRESS)
+		movZ += 0.008f;
+	if (glfwGetKey(window, GLFW_KEY_RIGHT) == GLFW_PRESS)
+		rot += 0.018f;
+	if (glfwGetKey(window, GLFW_KEY_LEFT) == GLFW_PRESS)
+		rot -= 0.018f;
+
+	//movimientos de articulaciones
+	if (glfwGetKey(window, GLFW_KEY_R) == GLFW_PRESS)
+		if (hombro < 90.0f)
+			hombro += 0.018f;
+		else
+			hombro = 90.0f;
+	if (glfwGetKey(window, GLFW_KEY_F) == GLFW_PRESS)
+		if (hombro > -140.0f)
+			hombro -= 0.018f;
+		else
+			hombro = -140.0f;
+	if (glfwGetKey(window, GLFW_KEY_X) == GLFW_PRESS)
+		if (codo < 140.0f)
+			codo += 0.018f;
+		else
+			codo = 140.0f;
+
+	if (glfwGetKey(window, GLFW_KEY_C) == GLFW_PRESS)
+		if (codo > 0.0f)
+			codo -= 0.018f;
+		else
+			codo = 0.0f;
+
+	if (glfwGetKey(window, GLFW_KEY_M) == GLFW_PRESS)
+		if (muneca < 60.0f)
+			muneca += 0.018f;
+		else
+			muneca = 60.0f;
+
+	if (glfwGetKey(window, GLFW_KEY_N) == GLFW_PRESS)
+		if (muneca > -60.0f)
+			muneca -= 0.018f;
+		else
+			muneca = -60.0f;
+
+	//dedos
+	if (glfwGetKey(window, GLFW_KEY_O) == GLFW_PRESS) {
+		if (dedo1 > -90.0f) {
+			dedo1 -= 0.018f;
+			if (dedo2 > -115.0f) dedo2 -= 0.012f;
+			if (dedo3 > -90.0f)  dedo3 -= 0.008f;
+		}
+		else {
+			dedo1 = -90.0f;
+		}
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_P) == GLFW_PRESS) {
+		if (dedo1 < 30.0f) {
+			dedo1 += 0.018f;
+			if (dedo2 < 0.0f)  dedo2 += 0.012f;
+			if (dedo3 < 20.0f) dedo3 += 0.008f;
+		}
+		else {
+			dedo1 = 30.0f;
+		}
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_U) == GLFW_PRESS) {
+		if (dedo2 > -115.0f) {
+			dedo2 -= 0.018f;
+			if (dedo3 > -90.0f) dedo3 -= 0.015f;
+		}
+		else {
+			dedo2 = -115.0f;
+		}
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_I) == GLFW_PRESS) {
+		if (dedo2 < 0.0f) {
+			dedo2 += 0.018f;
+			if (dedo3 < 20.0f) dedo3 += 0.015f;
+		}
+		else {
+			dedo2 = 0.0f;
+		}
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_J) == GLFW_PRESS) {
+		if (dedo3 > -90.0f) dedo3 -= 0.018f;
+		else dedo3 = -90.0f;
+	}
+
+	if (glfwGetKey(window, GLFW_KEY_K) == GLFW_PRESS) {
+		if (dedo3 < 20.0f) dedo3 += 0.018f;
+		else dedo3 = 20.0f;
+	}
+}
 
 
