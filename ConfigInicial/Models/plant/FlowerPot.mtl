@@ -1,0 +1,7 @@
+newmtl material0
+Ka 1.000 1.000 1.000
+Kd 1.000 1.000 1.000
+Ks 0.000 0.000 0.000
+Ns 10.000
+map_Kd FlowerPot_Base_Color.png
+map_Bump FlowerPot_Normal_OpenGL.png

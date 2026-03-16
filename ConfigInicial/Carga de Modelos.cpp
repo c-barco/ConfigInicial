@@ -1,7 +1,7 @@
 /* Barco Núñez Claudia Citlali
 * No. de Cuenta: 422067621
-* Fecha: 10-03-2026
-* Previo 6. Carga de modelos 
+* Fecha: 15-03-2026
+* Practica 6. Carga de modelos 
 /*/
 
 // Std. Includes
@@ -103,7 +103,12 @@ int main( )
     Model dog((char*)"Models/dog/RedDog.obj");
     Model cat((char*)"Models/cat/12221_Cat_v1_l3.obj");
     Model light((char*)"Models/light/light.obj");
-    glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 100.0f );
+    Model mountain((char*)"Models/mountain/mountain.obj");
+    Model plant((char*)"Models/plant/FlowerPot.obj");
+    Model sky((char*)"Models/sky/sky.obj");
+    Model bench((char*)"Models/bench/bench.obj");
+    //Model ground((char*)"Models/ground/grass.obj");
+    glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 1000.0f );
     
   
 
@@ -132,22 +137,61 @@ int main( )
         // Draw the loaded model
         glm::mat4 model(1);
 
-		model = glm::translate(model, glm::vec3(-1.75f, 0.0f, 0.0f)); 
-		model = glm::scale(model, glm::vec3(0.5f, 0.5f, 0.5f));  
+		model = glm::translate(model, glm::vec3(1.0f, 0.0f, 1.0f)); 
+		model = glm::scale(model, glm::vec3(1.5f, 1.5f, 1.5f));  
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         dog.Draw(shader);
 
-        model = glm::translate(model, glm::vec3(2.0f, -0.5f, 0.0f));
-        model = glm::scale(model, glm::vec3(0.05f, 0.05f, 0.05f));
-		model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        // gato
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(-1.0f, -0.5f, 1.0f));
+        model = glm::rotate(model, glm::radians(-90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.03f, 0.03f,0.03f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         cat.Draw(shader);
 
-        model = glm::translate(model, glm::vec3(3.0f, 1.0f, -3.0f));
-        model = glm::scale(model, glm::vec3(20.0f, 20.0f, 20.0f));
-        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(1.0f, 0.0f, 0.0f));
+
+        // farol
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0f, 0.0f, -8.0f));
+        //model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.8f, 0.8f, 0.8f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         light.Draw(shader);
+
+
+        // montaña
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0f, 0.0f, -40.0f));
+        //model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(1.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        mountain.Draw(shader);
+
+        //banca
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0f, 0.0f, -4.0f));
+        model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, -1.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(3.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        bench.Draw(shader);
+
+        //cielo
+        model = glm::mat4(1.0f);
+        //model = glm::translate(model, glm::vec3(0.0f, 0.0f, 0.0f));
+        //model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(0.5f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        sky.Draw(shader);
+
+        ////piso
+        //model = glm::mat4(1.0f);
+        //model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
+        ////model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+        //model = glm::scale(model, glm::vec3(1.0f));
+        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        //ground.Draw(shader);
+
         // Swap the buffers
         glfwSwapBuffers( window );
     }
