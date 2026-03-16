@@ -107,7 +107,7 @@ int main( )
     Model plant((char*)"Models/plant/FlowerPot.obj");
     Model sky((char*)"Models/sky/sky.obj");
     Model bench((char*)"Models/bench/bench.obj");
-    //Model ground((char*)"Models/ground/grass.obj");
+    Model ground((char*)"Models/ground/grass.obj");
     glm::mat4 projection = glm::perspective( camera.GetZoom( ), ( float )SCREEN_WIDTH/( float )SCREEN_HEIGHT, 0.1f, 1000.0f );
     
   
@@ -164,7 +164,7 @@ int main( )
         model = glm::mat4(1.0f);
         model = glm::translate(model, glm::vec3(0.0f, 0.0f, -40.0f));
         //model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-        model = glm::scale(model, glm::vec3(1.0f));
+        model = glm::scale(model, glm::vec3(10.0f));
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         mountain.Draw(shader);
 
@@ -184,13 +184,13 @@ int main( )
         glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
         sky.Draw(shader);
 
-        ////piso
-        //model = glm::mat4(1.0f);
-        //model = glm::translate(model, glm::vec3(0.0f, -0.5f, 0.0f));
-        ////model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 0.0f));
-        //model = glm::scale(model, glm::vec3(1.0f));
-        //glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
-        //ground.Draw(shader);
+        //piso
+        model = glm::mat4(1.0f);
+        model = glm::translate(model, glm::vec3(0.0f, -1.0f, 0.0f));
+        //model = glm::rotate(model, glm::radians(90.0f), glm::vec3(0.0f, 0.0f, 0.0f));
+        model = glm::scale(model, glm::vec3(10.0f));
+        glUniformMatrix4fv(glGetUniformLocation(shader.Program, "model"), 1, GL_FALSE, glm::value_ptr(model));
+        ground.Draw(shader);
 
         // Swap the buffers
         glfwSwapBuffers( window );
