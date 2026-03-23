@@ -1,7 +1,7 @@
 /* Barco Núñez Claudia Citlali
 * No. de Cuenta: 422067621
 * Fecha: 17-03-2026
-* Previo 7. Texturizado
+* Practica 7. Texturizado
 */
 
 #include <iostream>
@@ -105,20 +105,54 @@ int main()
 	// Set up vertex data (and buffer(s)) and attribute pointers
 	GLfloat vertices[] =
 	{
-		// Positions            // Colors              // Texture Coords
-		-0.5f, -0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,0.0f,
-		0.5f, -0.5f, 0.0f,	   1.0f, 1.0f,1.0f,		1.0f,0.0f,
-		0.5f,  0.5f, 0.0f,     1.0f, 1.0f,1.0f,	    1.0f,1.0f,
-		-0.5f,  0.5f, 0.0f,    1.0f, 1.0f,1.0f,		0.0f,1.0f,
+	// Positions            // Colors              // Texture Coords
+		// Cara Trasera 2
+		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.0f, 0.333f,
+		 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.25f, 0.333f,
+		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.25f, 0.666f,
+		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.0f, 0.666f,
+
+		// Cara Frontal 4
+		-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.5f, 0.333f,
+		 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.75f, 0.333f,
+		 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.75f, 0.666f,
+		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.5f, 0.666f,
+
+		// Cara Izquierda 3
+		-0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.25f, 0.333f,
+		-0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.5f, 0.333f,
+		-0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.5f, 0.666f,
+		-0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.25f, 0.666f,
+
+		// Cara Derecha 5
+		 0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.75f, 0.333f,
+		 0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    1.0f, 0.333f,
+		 0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    1.0f, 0.666f,
+		 0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.75f, 0.666f,
+
+		 // Cara Inferior 6
+		 -0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.5f, 0.0f,
+		  0.5f, -0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.75f, 0.0f,
+		  0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.75f, 0.333f,
+		 -0.5f, -0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.5f, 0.333f,
+
+		 // Cara Superior 1
+		 -0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.5f, 0.666f,
+		  0.5f,  0.5f, -0.5f,  1.0f, 1.0f, 1.0f,    0.75f, 0.666f,
+		  0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.75f, 1.0f,
+		 -0.5f,  0.5f,  0.5f,  1.0f, 1.0f, 1.0f,    0.5f, 1.0f,
 
 		
 	};
 
 	GLuint indices[] =
-	{  // Note that we start from 0!
-		0,1,3,
-		1,2,3
-	
+	{
+		0, 1, 2, 2, 3, 0,
+		4, 5, 6, 6, 7, 4,
+		8, 9, 10, 10, 11, 8,
+		12, 13, 14, 14, 15, 12,
+		16, 17, 18, 18, 19, 16,
+		20, 21, 22, 22, 23, 20
 	};
 
 	// First, set the container's VAO (and VBO)
@@ -157,7 +191,7 @@ int main()
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MIN_FILTER, GL_LINEAR_MIPMAP_LINEAR);
 	glTexParameteri(GL_TEXTURE_2D, GL_TEXTURE_MAG_FILTER, GL_NEAREST_MIPMAP_NEAREST);
 	// Diffuse map
-	image = stbi_load("images/puerta.png", &textureWidth, &textureHeight, &nrChannels,0);
+	image = stbi_load("images/dado.png", &textureWidth, &textureHeight, &nrChannels,0);
 	glBindTexture(GL_TEXTURE_2D, texture1);
 	glTexImage2D(GL_TEXTURE_2D, 0, GL_RGBA, textureWidth, textureHeight, 0, GL_RGBA, GL_UNSIGNED_BYTE, image);
 	glGenerateMipmap(GL_TEXTURE_2D);
@@ -212,7 +246,7 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		// Draw the light object (using light's vertex attributes)
 		glBindVertexArray(VAO);
-		glDrawElements(GL_TRIANGLES, 6, GL_UNSIGNED_INT, 0);
+		glDrawElements(GL_TRIANGLES, 36, GL_UNSIGNED_INT, 0);
 		glBindVertexArray(0);
 
 		// Swap the screen buffers
