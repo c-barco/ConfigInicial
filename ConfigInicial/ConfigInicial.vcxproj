@@ -29,6 +29,7 @@
     <None Include="Shader\lighting.vs" />
     <None Include="Shader\modelLoading.frag" />
     <None Include="Shader\modelLoading.vs" />
+    <None Include="Shader\moonColor.frag" />
   </ItemGroup>
   <ItemGroup>
     <ClCompile Include="Iluminacion.cpp" />

@@ -25,6 +25,7 @@ out vec4 color;
 uniform vec3 viewPos;
 uniform Material material;
 uniform Light light;
+uniform Light lightMoon;
 
 uniform sampler2D texture_diffuse;
 
@@ -44,7 +45,21 @@ void main()
     vec3 reflectDir = reflect(-lightDir, norm);
     float spec = pow(max(dot(viewDir, reflectDir), 0.0), material.shininess);
     vec3 specular = light.specular * (spec * material.specular);
+
+
+     // AmbientMoon
+    vec3 ambientMoon = lightMoon.ambient *material.diffuse;
     
-    vec3 result = ambient + diffuse + specular;
+    // DiffuseMoon
+    vec3 lightDirMoon = normalize(lightMoon.position - FragPos);
+    float diffMoon = max(dot(norm, lightDirMoon), 0.0);
+    vec3 diffuseMoon = lightMoon.diffuse * diffMoon * material.diffuse;
+    
+    // SpecularMoon
+    vec3 reflectDirMoon = reflect(-lightDirMoon, norm);
+    float specMoon = pow(max(dot(viewDir, reflectDirMoon), 0.0), material.shininess);
+    vec3 specularMoon = lightMoon.specular * (specMoon * material.specular);
+    
+    vec3 result = (ambient + diffuse + specular) + (ambientMoon + diffuseMoon + specularMoon);
     color = vec4(result, 1.0f)*texture(texture_diffuse,TexCoords);
 }
