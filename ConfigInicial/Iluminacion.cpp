@@ -251,7 +251,7 @@ int main()
             glm::mat4 localSunModel = glm::mat4(1.0f);
             localSunModel = glm::rotate(localSunModel, glm::radians(90.0f), glm::vec3(0.0f, 1.0f, 0.0f));
             localSunModel = glm::translate(localSunModel, posSol);
-            localSunModel = glm::scale(localSunModel, glm::vec3(0.02f));
+            localSunModel = glm::scale(localSunModel, glm::vec3(0.0f));
 
             glm::mat4 inheritedSolModel = modelBench * localSunModel;
 
