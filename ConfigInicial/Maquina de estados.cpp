@@ -1,11 +1,10 @@
-﻿﻿/* Barco Núñez Claudia Citlali
-* No. de Cuenta: 422067621
-* Fecha: 21-04-2026
-* Practica 11. Animación 
-/*/
+﻿// Barco Núñez Claudia Citlali
+// No. de Cuenta: 422067621
+// Fecha: 26-04-2026
+// Practica 11. Animacion por maquina de estados
+
 #include <iostream>
 #include <cmath>
-
 // GLEW
 #include <GL/glew.h>
 
@@ -405,71 +404,10 @@ int main()
 	return 0;
 }
 
-// Moves/alters the camera positions based on user input
-void DoMovement()
-{
-
-	// Camera controls
-	if (keys[GLFW_KEY_W] || keys[GLFW_KEY_UP])
-	{
-		camera.ProcessKeyboard(FORWARD, deltaTime);
-
-	}
-
-	if (keys[GLFW_KEY_S] || keys[GLFW_KEY_DOWN])
-	{
-		camera.ProcessKeyboard(BACKWARD, deltaTime);
-
-
-	}
-
-	if (keys[GLFW_KEY_A] || keys[GLFW_KEY_LEFT])
-	{
-		camera.ProcessKeyboard(LEFT, deltaTime);
-
-
-	}
-
-	if (keys[GLFW_KEY_D] || keys[GLFW_KEY_RIGHT])
-	{
-		camera.ProcessKeyboard(RIGHT, deltaTime);
-
-
-	}
-
-	if (keys[GLFW_KEY_T])
-	{
-		pointLightPositions[0].x += 0.01f;
-	}
-	if (keys[GLFW_KEY_G])
-	{
-		pointLightPositions[0].x -= 0.01f;
-	}
-
-	if (keys[GLFW_KEY_Y])
-	{
-		pointLightPositions[0].y += 0.01f;
-	}
-
-	if (keys[GLFW_KEY_H])
-	{
-		pointLightPositions[0].y -= 0.01f;
-	}
-	if (keys[GLFW_KEY_U])
-	{
-		pointLightPositions[0].z -= 0.1f;
-	}
-	if (keys[GLFW_KEY_J])
-	{
-		pointLightPositions[0].z += 0.01f;
-	}
-	
-}
-
 // Is called whenever a key is pressed/released via GLFW
-void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode)
+void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
-	if (GLFW_KEY_ESCAPE == key && GLFW_PRESS == action)
+	if (GLFW_KEY_ESCAPE == key && action == GLFW_PRESS)
 	{
 		glfwSetWindowShouldClose(window, GL_TRUE);
 	}
@@ -492,94 +430,163 @@ void KeyCallback(GLFWwindow *window, int key, int scancode, int action, int mode
 		if (active)
 		{
 			Light1 = glm::vec3(0.2f, 0.8f, 1.0f);
-			
 		}
 		else
 		{
-			Light1 = glm::vec3(0);//Cuado es solo un valor en los 3 vectores pueden dejar solo una componente
+			Light1 = glm::vec3(0);
 		}
 	}
+
 	if (keys[GLFW_KEY_B])
 	{
-		dogAnim = 1;
-		
+		dogAnim = 1; // Inicia animación
 	}
 
 	if (keys[GLFW_KEY_P])
 	{
-		dogAnim = 0;
-
+		dogAnim = 0; // Detiene animación
 	}
-	
 }
-void Animation() {
-	if (AnimBall)
-	{
-		rotBall += 0.4f;
-		//printf("%f", rotBall);
-	}
-	
-	if (AnimDog)
-	{
-		rotDog -= 0.6f;
-		//printf("%f", rotBall);
-	}
-	void Animation()
-	{
-		if (dogAnim == 1) { // Estado caminar
-			if (!step) { // Fase 1 del paso
-				RLegs += 0.03f;
-				FLegs += 0.03f;
-				head += 0.03f;
-				tail += 0.03f;
 
-				if (RLegs > 15.0f) { // Límite para cambiar de fase
-					step = true;
-				}
-			}
-			else { // Fase 2 del paso (regreso)
-				RLegs -= 0.03f;
-				FLegs -= 0.03f;
-				head -= 0.03f;
-				tail -= 0.03f;
+// Moves/alters the camera positions based on user input
+void DoMovement()
+{
+	if (keys[GLFW_KEY_W] || keys[GLFW_KEY_UP]) camera.ProcessKeyboard(FORWARD, deltaTime);
+	if (keys[GLFW_KEY_S] || keys[GLFW_KEY_DOWN]) camera.ProcessKeyboard(BACKWARD, deltaTime);
+	if (keys[GLFW_KEY_A] || keys[GLFW_KEY_LEFT]) camera.ProcessKeyboard(LEFT, deltaTime);
+	if (keys[GLFW_KEY_D] || keys[GLFW_KEY_RIGHT]) camera.ProcessKeyboard(RIGHT, deltaTime);
 
-				if (RLegs <= -15.0f) {
-					step = false;
-				}
-			}
+	// Controles de luz puntual
+	if (keys[GLFW_KEY_T]) pointLightPositions[0].x += 0.01f;
+	if (keys[GLFW_KEY_G]) pointLightPositions[0].x -= 0.01f;
+	if (keys[GLFW_KEY_Y]) pointLightPositions[0].y += 0.01f;
+	if (keys[GLFW_KEY_H]) pointLightPositions[0].y -= 0.01f;
+	if (keys[GLFW_KEY_U]) pointLightPositions[0].z -= 0.01f;
+	if (keys[GLFW_KEY_J]) pointLightPositions[0].z += 0.01f;
+}
 
-			// Movimiento constante en el eje Z
-			dogPos.z += 0.005f;
-			float lim = 2.35f;
+void Animation()
+{
+	if (dogAnim == 0) return;
 
-			if (dogPos.z >= lim) {
-				// Detener la animación al llegar al límite
-				dogAnim = 0;
+	bool isMoving = true;
+	float speed = 0.0012f;
+	float rotSpeed = 0.25f;
+	float lim = 2.35f;
 
-				// Resetear posición y articulaciones a estado inicial
-				dogPos.z = 0.0f;
-				RLegs = 0.0f;
-				FLegs = 0.0f;
-				head = 0.0f;
-				tail = 0.0f;
-			}
+	switch (dogAnim) {
+	case 1: // Estado 1: Caminar hacia adelante hasta el borde
+		dogPos.z += speed;
+		if (dogPos.z >= lim) dogAnim = 2;
+		break;
+
+	case 2: // Estado 2: Girar 90 grados hacia la izquierda
+		dogRot += rotSpeed;
+		if (dogRot >= 90.0f) {
+			dogRot = 90.0f;
+			dogAnim = 3;
 		}
-	} // Cierre correcto de la función Animation
+		break;
 
-	void MouseCallback(GLFWwindow * window, double xPos, double yPos)
-	{
-		if (firstMouse)
-		{
-			lastX = xPos;
-			lastY = yPos;
-			firstMouse = false;
+	case 3: // Estado 3: Caminar a la Esquina 1 
+		dogPos.x += speed;
+		if (dogPos.x >= lim) dogAnim = 4;
+		break;
+
+	case 4: // Estado 4: Girar 90 grados apuntando hacia atrás 
+		dogRot += rotSpeed;
+		if (dogRot >= 180.0f) {
+			dogRot = 180.0f;
+			dogAnim = 5;
 		}
+		break;
 
-		GLfloat xOffset = xPos - lastX;
-		GLfloat yOffset = lastY - yPos; // Invertido ya que las coordenadas Y van de abajo hacia arriba
+	case 5: // Estado 5: Caminar a la Esquina 2
+		dogPos.z -= speed;
+		if (dogPos.z <= -lim) dogAnim = 6;
+		break;
 
+	case 6: // Estado 6: Girar 90 grados apuntando hacia la izquierda
+		dogRot += rotSpeed;
+		if (dogRot >= 270.0f) {
+			dogRot = 270.0f;
+			dogAnim = 7;
+		}
+		break;
+
+	case 7: // Estado 7: Caminar a la Esquina 3 
+		dogPos.x -= speed;
+		if (dogPos.x <= -lim) dogAnim = 8;
+		break;
+
+	case 8: // Estado 8: Girar para mirar hacia el centro 
+		dogRot += rotSpeed;
+		if (dogRot >= 405.0f) {
+			dogRot = 405.0f;
+			dogAnim = 9;
+		}
+		break;
+
+	case 9: // Estado 9: Caminar en diagonal de regreso al centro 
+		dogPos.x += speed * 0.7071f;
+		dogPos.z += speed * 0.7071f;
+
+		if (dogPos.x >= 0.0f || dogPos.z >= 0.0f) {
+			dogPos.x = 0.0f;
+			dogPos.z = 0.0f;
+			dogAnim = 10;
+		}
+		break;
+
+	case 10: // Estado 10: Girar para volver a la rotación original
+		dogRot -= rotSpeed;
+		if (dogRot <= 360.0f) {
+			dogRot = 0.0f;
+
+			dogAnim = 1;
+
+			RLegs = 0.0f;
+			FLegs = 0.0f;
+			head = 0.0f;
+			tail = 0.0f;
+		}
+		break;
+	}
+
+	if (isMoving && dogAnim != 0) {
+		if (!step) {
+			RLegs += 0.03f;
+			FLegs += 0.03f;
+			head += 0.03f;
+			tail += 0.03f;
+
+			if (RLegs > 15.0f) step = true;
+		}
+		else {
+			RLegs -= 0.03f;
+			FLegs -= 0.03f;
+			head -= 0.03f;
+			tail -= 0.03f;
+
+			if (RLegs <= -15.0f) step = false;
+		}
+	}
+}
+
+void MouseCallback(GLFWwindow* window, double xPos, double yPos)
+{
+	if (firstMouse)
+	{
 		lastX = xPos;
 		lastY = yPos;
-
-		camera.ProcessMouseMovement(xOffset, yOffset);
+		firstMouse = false;
 	}
+
+	GLfloat xOffset = xPos - lastX;
+	GLfloat yOffset = lastY - yPos;
+
+	lastX = xPos;
+	lastY = yPos;
+
+	camera.ProcessMouseMovement(xOffset, yOffset);
+}
