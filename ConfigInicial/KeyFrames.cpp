@@ -1,11 +1,19 @@
 /* Barco Nunez Claudia Citlali
 * No. de Cuenta: 422067621
-* Fecha: 28-04-2026
-* Previo 12. Animacion por Keyframes
+* Fecha: 03-05-2026
+* Practica 12. Animacion por Keyframes
 /*/
 
 #include <iostream>
 #include <cmath>
+#include <fstream>
+#include <string>
+#include <sstream>
+#if defined(_WIN32)
+#include <direct.h>    // _mkdir en Windows
+#else
+#include <sys/stat.h>  // mkdir en Linux/Mac
+#endif
 
 // GLEW
 #include <GL/glew.h>
@@ -36,7 +44,9 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 void MouseCallback(GLFWwindow* window, double xPos, double yPos);
 void DoMovement();
 void Animation();
-void LoadSitAndWaveAnimation();  // Nueva funcion: carga la animacion pregrabada
+void SaveAnimationToFile();      
+bool LoadAnimationFromFile(const std::string& filename);  
+void EnsureAnimationsFolder();   
 
 // Window dimensions
 const GLuint WIDTH = 800, HEIGHT = 600;
@@ -110,6 +120,7 @@ glm::vec3 Light1 = glm::vec3(0);
 float rotBall = 0.0f;
 float rotDog = 0.0f;
 float bodyTilt = 0.0f;
+float bodySpin= 0.0f;
 int dogAnim = 0;
 float head = 0.0f;
 float tail = 0.0f;
@@ -124,8 +135,8 @@ float legBR = 0.0f;   // Pata trasera derecha
 //KeyFrames
 float dogPosX, dogPosY, dogPosZ;
 
-#define MAX_FRAMES 15
-int i_max_steps = 190;
+#define MAX_FRAMES 150
+int i_max_steps = 200;
 int i_curr_steps = 0;
 
 typedef struct _frame {
@@ -135,6 +146,9 @@ typedef struct _frame {
 
 	float bodyTilt;
 	float bodyTiltInc;
+
+	float bodySpin;
+	float bodySpinInc;
 
 	float dogPosX;
 	float dogPosY;
@@ -165,6 +179,8 @@ FRAME KeyFrame[MAX_FRAMES];
 int FrameIndex = 0;
 bool play = false;
 int playIndex = 0;
+bool pendingSave = false;
+bool pendingLoad = false;
 
 void saveFrame(void) {
 	printf("frameindex %d\n", FrameIndex);
@@ -175,6 +191,7 @@ void saveFrame(void) {
 
 	KeyFrame[FrameIndex].rotDog = rotDog;
 	KeyFrame[FrameIndex].bodyTilt = bodyTilt;
+	KeyFrame[FrameIndex].bodySpin = bodySpin;
 
 	KeyFrame[FrameIndex].head = head;
 	KeyFrame[FrameIndex].tail = tail;
@@ -196,6 +213,7 @@ void resetElements(void)
 
 	rotDog = KeyFrame[0].rotDog;
 	bodyTilt = KeyFrame[0].bodyTilt;
+	bodySpin = KeyFrame[0].bodySpin;
 
 	head = KeyFrame[0].head;
 	tail = KeyFrame[0].tail;
@@ -223,6 +241,9 @@ void interpolation(void)
 	KeyFrame[playIndex].bodyTiltInc =
 		(KeyFrame[playIndex + 1].bodyTilt - KeyFrame[playIndex].bodyTilt) / i_max_steps;
 
+	KeyFrame[playIndex].bodySpinInc = (
+		(KeyFrame[playIndex + 1].bodySpin - KeyFrame[playIndex].bodySpin) / i_max_steps);
+
 	KeyFrame[playIndex].headInc =
 		(KeyFrame[playIndex + 1].head - KeyFrame[playIndex].head) / i_max_steps;
 
@@ -245,12 +266,161 @@ void interpolation(void)
 
 
 
+
+void EnsureAnimationsFolder()
+{
+#if defined(_WIN32)
+	_mkdir("animations");
+#else
+	mkdir("animations", 0755);
+#endif
+}
+
+void SaveAnimationToFile()
+{
+	if (FrameIndex < 2)
+	{
+		printf("[GUARDAR] Se necesitan al menos 2 keyframes para guardar.\n");
+		return;
+	}
+
+	EnsureAnimationsFolder();
+
+	std::string name;
+	printf("Nombre del archivo (sin extension): ");
+	fflush(stdout);
+	std::cin >> name;
+
+	std::string path = "animations/" + name + ".txt";
+	std::ofstream file(path);
+	if (!file.is_open())
+	{
+		printf("[ERROR] No se pudo crear el archivo: %s\n", path.c_str());
+		return;
+	}
+
+	file << "FRAMES " << FrameIndex << "\n";
+	for (int i = 0; i < FrameIndex; i++)
+	{
+		file << "FRAME " << i << "\n";
+		file << "dogPosX " << KeyFrame[i].dogPosX << "\n";
+		file << "dogPosY " << KeyFrame[i].dogPosY << "\n";
+		file << "dogPosZ " << KeyFrame[i].dogPosZ << "\n";
+		file << "rotDog " << KeyFrame[i].rotDog << "\n";
+		file << "bodyTilt " << KeyFrame[i].bodyTilt << "\n";
+		file << "bodySpin " << KeyFrame[i].bodySpin << "\n";
+		file << "head " << KeyFrame[i].head << "\n";
+		file << "tail " << KeyFrame[i].tail << "\n";
+		file << "legFL " << KeyFrame[i].legFL << "\n";
+		file << "legFR " << KeyFrame[i].legFR << "\n";
+		file << "legBL " << KeyFrame[i].legBL << "\n";
+		file << "legBR " << KeyFrame[i].legBR << "\n";
+		file << "END_FRAME\n";
+	}
+	file.close();
+	printf("Animacion guardada en: %s  (%d keyframes)\n", path.c_str(), FrameIndex);
+}
+bool LoadAnimationFromFile(const std::string& filename) {
+	std::string path = "animations/" + filename + ".txt";
+	std::ifstream file(path);
+
+	if (!file.is_open()) {
+		printf("No se pudo abrir el archivo: %s\n", path.c_str());
+		return false;
+	}
+
+	// 1. Limpiar los KeyFrames
+	for (int i = 0; i < MAX_FRAMES; i++) {
+		memset(&KeyFrame[i], 0, sizeof(FRAME));  
+	}
+
+	std::string line;
+	int currentFrameLoading = -1;
+
+	// 2. Lectura 
+	while (std::getline(file, line)) {
+		
+		if (line.empty() || line.find_first_not_of(" \t\n\r") == std::string::npos)
+			continue;
+
+		std::stringstream ss(line);
+		std::string key;
+		ss >> key;
+
+		// Identificadores de estructura
+		if (key == "FRAMES") continue;
+		if (key == "FRAME") {
+			currentFrameLoading++;
+			continue;
+		}
+		if (key == "END_FRAME") continue;
+
+		// Carga de valores numéricos
+		float val;
+		if (!(ss >> val)) continue;
+
+		if (currentFrameLoading >= 0 && currentFrameLoading < MAX_FRAMES) {
+			if (key == "dogPosX")      KeyFrame[currentFrameLoading].dogPosX = val;
+			else if (key == "dogPosY")  KeyFrame[currentFrameLoading].dogPosY = val;
+			else if (key == "dogPosZ")  KeyFrame[currentFrameLoading].dogPosZ = val;
+			else if (key == "rotDog")   KeyFrame[currentFrameLoading].rotDog = val;
+			else if (key == "bodyTilt") KeyFrame[currentFrameLoading].bodyTilt = val;
+			else if (key == "bodySpin") KeyFrame[currentFrameLoading].bodySpin = val;
+			else if (key == "head")     KeyFrame[currentFrameLoading].head = val;
+			else if (key == "tail")     KeyFrame[currentFrameLoading].tail = val;
+			else if (key == "legFL")    KeyFrame[currentFrameLoading].legFL = val;
+			else if (key == "legFR")    KeyFrame[currentFrameLoading].legFR = val;
+			else if (key == "legBL")    KeyFrame[currentFrameLoading].legBL = val;
+			else if (key == "legBR")    KeyFrame[currentFrameLoading].legBR = val;
+		}
+	}
+
+	file.close();
+
+	// 3. Actualizar el índice global 
+	FrameIndex = currentFrameLoading + 1;
+
+	if (FrameIndex > 0) {
+		printf("%d frames cargados.\n", FrameIndex);
+		return true;
+	}
+	else {
+		printf("Error en archivo.\n");
+		return false;
+	}
+}
+
 // Deltatime
 GLfloat deltaTime = 0.0f;
 GLfloat lastFrame = 0.0f;
 
 int main()
 {
+
+	EnsureAnimationsFolder();
+	{
+		char resp;
+		printf("Cargar animacion desde archivo? (s/n): ");
+		fflush(stdout);
+		std::cin >> resp;
+		std::cin.ignore(std::numeric_limits<std::streamsize>::max(), '\n');
+		if (resp == 's' || resp == 'S')
+		{
+			std::string animName;
+			printf("Nombre del archivo (sin extension, carpeta animations/): ");
+			fflush(stdout);
+			std::cin >> animName;
+			if (!LoadAnimationFromFile(animName))
+			{
+				printf("No se cargo ninguna animacion. Iniciando en blanco.\n");
+			}
+		}
+		else
+		{
+			printf("Iniciando sin animacion cargada.\n");
+		}
+	}
+
 	// Init GLFW
 	glfwInit();
 
@@ -316,6 +486,8 @@ int main()
 		KeyFrame[i].rotDogInc = 0;
 		KeyFrame[i].bodyTilt = 0;
 		KeyFrame[i].bodyTiltInc = 0;
+		KeyFrame[i].bodySpin = 0;
+		KeyFrame[i].bodySpinInc = 0;
 		KeyFrame[i].head = 0;
 		KeyFrame[i].tail = 0;
 		KeyFrame[i].legFL = 0;
@@ -362,7 +534,7 @@ int main()
 	{
 
 		// Calculate deltatime of current frame
-		GLfloat currentFrame = glfwGetTime();
+		GLfloat currentFrame = (GLfloat)glfwGetTime();
 		deltaTime = currentFrame - lastFrame;
 		lastFrame = currentFrame;
 
@@ -382,6 +554,30 @@ int main()
 		glm::mat4 modelTemp = glm::mat4(1.0f); //Temp
 
 
+		// Procesar guardado pendiente (fuera del callback)
+		if (pendingSave)
+		{
+			pendingSave = false;
+			SaveAnimationToFile();
+		}
+
+		// Procesar carga pendiente
+		if (pendingLoad)
+		{
+			pendingLoad = false;
+			std::string animName;
+			printf("Nombre del archivo a cargar (sin extension): ");
+			fflush(stdout);
+			std::cin >> animName;
+			if (LoadAnimationFromFile(animName))
+			{
+				play = false;
+				playIndex = 0;
+				i_curr_steps = 0;
+				resetElements();
+				printf("Animacion cargada correctamente.\n");
+			}
+		}
 
 		// Use cooresponding shader when setting uniforms/drawing objects
 		lightingShader.Use();
@@ -459,11 +655,12 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		glUniform1i(glGetUniformLocation(lightingShader.Program, "transparency"), 0);
 
-	
+
 		model = glm::translate(model, glm::vec3(dogPosX, dogPosY, dogPosZ));
 		model = glm::rotate(model, glm::radians(rotDog), glm::vec3(0.0f, 1.0f, 0.0f));
 		model = glm::rotate(model, glm::radians(bodyTilt), glm::vec3(1.0f, 0.0f, 0.0f));
-		modelTemp = model;  
+		model = glm::rotate(model, glm::radians(bodySpin), glm::vec3(0.0f, 0.0f, 1.0f));
+		modelTemp = model;
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		DogBody.Draw(lightingShader);
 
@@ -480,14 +677,14 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		DogTail.Draw(lightingShader);
 
-	
+
 		model = modelTemp;
 		model = glm::translate(model, glm::vec3(0.112f, -0.044f, 0.074f));
 		model = glm::rotate(model, glm::radians(legFL), glm::vec3(-1.0f, 0.0f, 0.0f));
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		F_LeftLeg.Draw(lightingShader);
 
-	
+
 		model = modelTemp;
 		model = glm::translate(model, glm::vec3(-0.111f, -0.055f, 0.074f));
 		model = glm::rotate(model, glm::radians(legFR), glm::vec3(1.0f, 0.0f, 0.0f));
@@ -500,7 +697,7 @@ int main()
 		glUniformMatrix4fv(modelLoc, 1, GL_FALSE, glm::value_ptr(model));
 		B_LeftLeg.Draw(lightingShader);
 
-		
+
 		model = modelTemp;
 		model = glm::translate(model, glm::vec3(-0.083f, -0.057f, -0.231f));
 		model = glm::rotate(model, glm::radians(legBR), glm::vec3(-1.0f, 0.0f, 0.0f));
@@ -563,20 +760,22 @@ int main()
 void DoMovement()
 {
 	//Dog Controls
-	if (keys[GLFW_KEY_2]) rotDog += 0.1f;
-	if (keys[GLFW_KEY_3]) rotDog -= 0.1f;
+	if (keys[GLFW_KEY_2]) rotDog += 0.01f;
+	if (keys[GLFW_KEY_3]) rotDog -= 0.01f;
 	if (keys[GLFW_KEY_4]) bodyTilt += 0.01f;
 	if (keys[GLFW_KEY_5]) bodyTilt -= 0.01f;
+	if (keys[GLFW_KEY_8]) bodySpin+= 0.01f;
+	if (keys[GLFW_KEY_9]) bodySpin -= 0.01f;
 
 	// Cabeza
-	if (keys[GLFW_KEY_Q]) head += 0.1f;
-	if (keys[GLFW_KEY_E]) head -= 0.1f;
+	if (keys[GLFW_KEY_Q]) head += 0.01f;
+	if (keys[GLFW_KEY_E]) head -= 0.01f;
 
 	// Cola
-	if (keys[GLFW_KEY_Z]) tail += 0.1f;
-	if (keys[GLFW_KEY_X]) tail -= 0.1f;
+	if (keys[GLFW_KEY_Z]) tail += 0.01f;
+	if (keys[GLFW_KEY_X]) tail -= 0.01f;
 
-	
+
 	// Pata Delantera Izquierda  (F_Left)  -> teclas C / V
 	if (keys[GLFW_KEY_C]) legFL += 0.05f;
 	if (keys[GLFW_KEY_V]) legFL -= 0.05f;
@@ -593,11 +792,12 @@ void DoMovement()
 	if (keys[GLFW_KEY_COMMA])       legBR -= 0.05f;
 
 	// Movimiento del perro en el mundo
-	if (keys[GLFW_KEY_H]) dogPosZ += 0.01;
-	if (keys[GLFW_KEY_Y]) dogPosZ -= 0.01;
-	if (keys[GLFW_KEY_G]) dogPosX -= 0.01;
-	if (keys[GLFW_KEY_J]) dogPosX += 0.01;
-
+	if (keys[GLFW_KEY_H]) dogPosZ += 0.0001f;
+	if (keys[GLFW_KEY_Y]) dogPosZ -= 0.0001f;
+	if (keys[GLFW_KEY_G]) dogPosX -= 0.0001f;
+	if (keys[GLFW_KEY_J]) dogPosX += 0.0001f;
+	if (keys[GLFW_KEY_6]) dogPosY -= 0.0001f;
+	if (keys[GLFW_KEY_7]) dogPosY += 0.0001f;
 	// Camera controls
 	if (keys[GLFW_KEY_W] || keys[GLFW_KEY_UP])    camera.ProcessKeyboard(FORWARD, deltaTime);
 	if (keys[GLFW_KEY_S] || keys[GLFW_KEY_DOWN])   camera.ProcessKeyboard(BACKWARD, deltaTime);
@@ -608,7 +808,7 @@ void DoMovement()
 // Is called whenever a key is pressed/released via GLFW
 void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode)
 {
-	
+
 	if (key == GLFW_KEY_L && action == GLFW_PRESS)
 	{
 		if (play == false && (FrameIndex > 1))
@@ -632,6 +832,17 @@ void KeyCallback(GLFWwindow* window, int key, int scancode, int action, int mode
 		{
 			saveFrame();
 		}
+	}
+
+	if (key == GLFW_KEY_P && action == GLFW_PRESS)
+	{
+		pendingSave = true; 
+	}
+
+
+	if (key == GLFW_KEY_O && action == GLFW_PRESS)
+	{
+		pendingLoad = true;
 	}
 
 
@@ -670,16 +881,16 @@ void Animation()
 {
 	if (play)
 	{
-		if (i_curr_steps >= i_max_steps) 
+		if (i_curr_steps >= i_max_steps)
 		{
 			playIndex++;
-			if (playIndex > FrameIndex - 2) 
+			if (playIndex > FrameIndex - 2)
 			{
 				printf("termina animacion\n");
 				playIndex = 0;
 				play = false;
 			}
-			else 
+			else
 			{
 				i_curr_steps = 0;
 				interpolation();
@@ -687,18 +898,19 @@ void Animation()
 		}
 		else
 		{
-			
+
 			dogPosX += KeyFrame[playIndex].incX;
 			dogPosY += KeyFrame[playIndex].incY;
 			dogPosZ += KeyFrame[playIndex].incZ;
 
 			rotDog += KeyFrame[playIndex].rotDogInc;
 			bodyTilt += KeyFrame[playIndex].bodyTiltInc;
+			bodySpin += KeyFrame[playIndex].bodySpinInc;
 
 			head += KeyFrame[playIndex].headInc;
 			tail += KeyFrame[playIndex].tailInc;
 
-			
+
 			legFL += KeyFrame[playIndex].legFLInc;
 			legFR += KeyFrame[playIndex].legFRInc;
 			legBL += KeyFrame[playIndex].legBLInc;

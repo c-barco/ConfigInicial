@@ -1,0 +1,1563 @@
+FRAMES 105
+FRAME 0
+dogPosX 0
+dogPosY 0
+dogPosZ 0
+rotDog 0
+bodyTilt 0
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL 0
+legBR 0
+END_FRAME
+FRAME 1
+dogPosX 0
+dogPosY 0
+dogPosZ 0
+rotDog 0
+bodyTilt -6.71006
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL 0
+legBR 0
+END_FRAME
+FRAME 2
+dogPosX 0
+dogPosY 0
+dogPosZ 0
+rotDog 0
+bodyTilt -11.7902
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -8.85002
+legBR 11
+END_FRAME
+FRAME 3
+dogPosX 0
+dogPosY 0
+dogPosZ 0
+rotDog 0
+bodyTilt -17.3903
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 4
+dogPosX 0
+dogPosY 0
+dogPosZ 0
+rotDog 0
+bodyTilt -22.1504
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 5
+dogPosX 0
+dogPosY -0.0151
+dogPosZ 0
+rotDog 0
+bodyTilt -22.1504
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 6
+dogPosX 0
+dogPosY -0.027
+dogPosZ 0
+rotDog 0
+bodyTilt -27.0105
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 7
+dogPosX 0
+dogPosY -0.0470002
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -33.7004
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 8
+dogPosX 0
+dogPosY -0.0470002
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -38.9095
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 9
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -45.3684
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 10
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -50.3176
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 11
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -56.6565
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+FRAME 12
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -63.5453
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+
+FRAME 13
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -66.5258
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+
+FRAME 14
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -66.5258
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+
+FRAME 15
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -66.5258
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+
+FRAME 16
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -66.5258
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+
+FRAME 17
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -66.5258
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+
+FRAME 18
+dogPosX 0
+dogPosY -0.0731007
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -66.5258
+bodySpin 0
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.4
+legBR 19.9
+END_FRAME
+
+FRAME 19
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -66.5268
+bodySpin 4.01
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 20
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -70.3776
+bodySpin 6.61006
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 21
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -76.3389
+bodySpin 8.5301
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 22
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -81.58
+bodySpin 9.86013
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 23
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -87.6213
+bodySpin 9.86013
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 24
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -87.6213
+bodySpin 10.5701
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 25
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -92.3423
+bodySpin 12.9302
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 26
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -97.2534
+bodySpin 12.9302
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 27
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -101.144
+bodySpin 14.9102
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 28
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -101.144
+bodySpin 14.9102
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 29
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -104.315
+bodySpin 14.9102
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 30
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -104.315
+bodySpin 17.1003
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 31
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -109.886
+bodySpin 19.8204
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 32
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -115.037
+bodySpin 21.6704
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 33
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -120.398
+bodySpin 24.6105
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 34
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -126.42
+bodySpin 24.6105
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 35
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -132.128
+bodySpin 27.6205
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 36
+dogPosX 0
+dogPosY -0.0731005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -135.516
+bodySpin 28.9606
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 37
+dogPosX 0
+dogPosY -0.0940009
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -137.195
+bodySpin 30.9106
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 38
+dogPosX 0
+dogPosY -0.111301
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -141.523
+bodySpin 32.6505
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 39
+dogPosX 0
+dogPosY -0.129601
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -144.871
+bodySpin 32.6505
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 40
+dogPosX 0
+dogPosY -0.140402
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -146.44
+bodySpin 32.6505
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 41
+dogPosX 0
+dogPosY -0.154302
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -147.449
+bodySpin 32.6505
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 42
+dogPosX 0
+dogPosY -0.187002
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -148.978
+bodySpin 32.6505
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 43
+dogPosX 0
+dogPosY -0.186102
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.498
+bodySpin 25.9105
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 44
+dogPosX 0
+dogPosY -0.186102
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.498
+bodySpin 21.9004
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 45
+dogPosX 0
+dogPosY -0.186102
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.498
+bodySpin 20.1104
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 46
+dogPosX 0
+dogPosY -0.186102
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.498
+bodySpin 17.9303
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 47
+dogPosX 0
+dogPosY -0.186102
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.498
+bodySpin 13.8302
+head 0
+tail 0
+legFL 0
+legFR 0
+legBL -19.3999
+legBR 19.9001
+END_FRAME
+
+FRAME 48
+dogPosX 0
+dogPosY -0.186103
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.499
+bodySpin 13.8305
+head 0
+tail 0
+legFL 22.0999
+legFR -0.849999
+legBL -19.3999
+legBR 2.30013
+END_FRAME
+
+FRAME 49
+dogPosX 0
+dogPosY -0.186103
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.499
+bodySpin 13.8305
+head 0
+tail 0
+legFL 1.15
+legFR -23.4999
+legBL 6.65006
+legBR 12.7002
+END_FRAME
+
+FRAME 50
+dogPosX 0
+dogPosY -0.186103
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.499
+bodySpin 13.8305
+head 0
+tail 0
+legFL 1.1
+legFR -11.45
+legBL -5.39995
+legBR 4.50013
+END_FRAME
+
+FRAME 51
+dogPosX 0
+dogPosY -0.186103
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.499
+bodySpin 13.8305
+head 0
+tail 0
+legFL -8.00001
+legFR -22.7499
+legBL -28.4998
+legBR -4.69987
+END_FRAME
+
+FRAME 52
+dogPosX 0
+dogPosY -0.186103
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 18.2809
+head 0
+tail 0
+legFL -8.00007
+legFR -22.7499
+legBL -28.4999
+legBR -4.69974
+END_FRAME
+
+FRAME 53
+dogPosX 0
+dogPosY -0.186103
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 23.461
+head 0
+tail 0
+legFL -8.00007
+legFR -22.7499
+legBL -28.4999
+legBR -4.69974
+END_FRAME
+
+FRAME 54
+dogPosX 0
+dogPosY -0.186103
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 23.461
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -24.9499
+legBR -3.49973
+END_FRAME
+
+FRAME 55
+dogPosX 0
+dogPosY -0.186103
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 29.8511
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 56
+dogPosX 0
+dogPosY -0.156902
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 29.8511
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 57
+dogPosX 0
+dogPosY -0.141602
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 35.0507
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 58
+dogPosX 0
+dogPosY -0.122701
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 39.5099
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 59
+dogPosX 0
+dogPosY -0.102201
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 43.6092
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 60
+dogPosX 0
+dogPosY -0.102201
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 48.2684
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+BR -3.49973
+END_FRAME
+
+FRAME 61
+dogPosX 0
+dogPosY -0.0438002
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 51.088
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 62
+dogPosX 0
+dogPosY -0.0251
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 65.2561
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 63
+dogPosX 0
+dogPosY -0.0251
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 72.6877
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 64
+dogPosX 0
+dogPosY 0.009
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 77.9388
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 65
+dogPosX 0
+dogPosY 0.0606005
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 98.0831
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 66
+dogPosX 0
+dogPosY 0.0871009
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 108.485
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 67
+dogPosX 0
+dogPosY 0.0871009
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 124.539
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 68
+dogPosX 0
+dogPosY 0.0871009
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -150.494
+bodySpin 186.487
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 69
+dogPosX 0
+dogPosY 0.0871009
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -156.411
+bodySpin 186.487
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 70
+dogPosX 0
+dogPosY 0.0667006
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -161.818
+bodySpin 186.487
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 71
+dogPosX 0
+dogPosY 0.0419001
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -165.906
+bodySpin 186.487
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 72
+dogPosX 0
+dogPosY 0.0195
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -171.083
+bodySpin 186.487
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 73
+dogPosX 0
+dogPosY -0.0053
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -176.83
+bodySpin 186.487
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 74
+dogPosX 0
+dogPosY 0.0021
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.088
+bodySpin 186.487
+head 0
+tail 0
+legFL -8.00007
+legFR -7.29998
+legBL -9.50006
+legBR -3.49973
+END_FRAME
+
+FRAME 75
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -6.59996
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 76
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -9.24997
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 77
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -9.24997
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 78
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -9.24997
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 79
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -9.24997
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 80
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -9.24997
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 81
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -18.4
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 82
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -26.6498
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 83
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -37.2997
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 84
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -48.4995
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 85
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -59.1493
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 86
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -71.1997
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 87
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -82.6504
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 88
+dogPosX 0
+dogPosY 0.00210185
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.082
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -89.2508
+legBL -9.49996
+legBR -3.49957
+END_FRAME
+
+FRAME 89
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -79.1021
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 90
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -70.0516
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 91
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -60.8013
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 92
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -51.0014
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 93
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -63.2512
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 94
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -76.952
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 95
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -86.8026
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 96
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -79.6022
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 97
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -67.7514
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 98
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -54.2014
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 99
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -66.0013
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 100
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -78.7021
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 101
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -89.5028
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 102
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -77.402
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 103
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -63.7512
+legBL -9.49996
+legBR -3.49942
+END_FRAME
+
+FRAME 104
+dogPosX 0
+dogPosY 0.00210366
+dogPosZ -0.0004
+rotDog 0
+bodyTilt -181.078
+bodySpin 186.488
+head 0
+tail 0
+legFL -8.00007
+legFR -47.8515
+legBL -9.49996
+legBR -3.49942
+END_FRAME
